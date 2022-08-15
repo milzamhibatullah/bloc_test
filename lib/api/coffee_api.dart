@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class CoffeeApi{
 
-  /// get hot coffee
+  /// method to fetch coffee example with hot
   Future<Coffee>fetchCoffees()async{
     try{
       var response = await network.get(endpoint: 'hot');

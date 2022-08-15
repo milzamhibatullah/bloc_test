@@ -1,5 +1,6 @@
 
 part of 'coffee_bloc.dart';
+///all event for coffe_bloc
 abstract class CoffeeEvent extends Equatable{
   const CoffeeEvent();
 
@@ -8,10 +9,4 @@ abstract class CoffeeEvent extends Equatable{
 class GetCoffeeEvent extends CoffeeEvent{
   @override
   List<Object?> get props => [];
-}
-
-class RefreshCoffeeEvent extends CoffeeEvent{
-  @override
-  List<Object?> get props => [];
-
 }

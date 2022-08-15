@@ -4,6 +4,7 @@ import 'dart:async';
 class Networks {
   ///example of base url to fetch coffee api
   final String _baseUrl = 'https://api.sampleapis.com/coffee/';
+  ///set timeout duration
   final int _duration = 45;
 
   ///create method get data

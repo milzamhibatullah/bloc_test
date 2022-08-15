@@ -8,10 +8,13 @@ part 'coffee_state.dart';
 part 'coffee_event.dart';
 
 class CoffeeBloc extends Bloc<CoffeeEvent, CoffeeState> {
-  CoffeeBloc() : super(CoffeeOnLoading()) {
+  ///when this bloc calling, set initial loading;
+  CoffeeBloc() : super(CoffeeInitial()) {
     final CoffeeApi api = CoffeeApi();
+    ///metthod get coffee event
     on<GetCoffeeEvent>((event, emit) async {
      try{
+       emit(CoffeeOnLoading());
        final coffees = await api.fetchCoffees();
        emit(
          CoffeeLoaded(coffees),
@@ -21,16 +24,5 @@ class CoffeeBloc extends Bloc<CoffeeEvent, CoffeeState> {
      }
     });
 
-    on<RefreshCoffeeEvent>((event,emit)async{
-      try{
-        emit(CoffeeOnLoading());
-        final coffees = await api.fetchCoffees();
-        emit(
-          CoffeeLoaded(coffees),
-        );
-      }catch(e){
-        emit(const CoffeeOnError());
-      }
-    });
   }
 }

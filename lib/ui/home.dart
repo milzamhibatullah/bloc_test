@@ -35,6 +35,7 @@ class HomeState extends State<Home> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is CoffeeLoaded) {
+                  ///add refresh indicator to refres data
                   return RefreshIndicator(
                       child: SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
@@ -49,7 +50,7 @@ class HomeState extends State<Home> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: state.coffee.coffees!.length,
                       )),
-                      onRefresh: () async => _bloc.add(RefreshCoffeeEvent()));
+                      onRefresh: () async => _bloc.add(GetCoffeeEvent()));
                 } else if (state is CoffeeOnError) {
                   return Container(
                     color: Colors.blue,
